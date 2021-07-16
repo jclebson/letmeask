@@ -26,7 +26,7 @@ module.exports = {
       template: path.resolve(__dirname, "public", "index.html"),
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
-  ],
+  ].filter(Boolean),
 
   module: {
     rules: [
