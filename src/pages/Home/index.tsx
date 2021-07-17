@@ -9,6 +9,7 @@ import LogInIcon from "../../assets/images/Log-in.svg";
 
 import { PageAuth, Aside, Main, Content } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
+import { ButtonWrapper } from "../../components/Button";
 
 type HomePropsType = {
   toggleTheme: () => void;
@@ -41,10 +42,10 @@ export const Home = ({ toggleTheme }: HomePropsType) => {
           <div className="separator">ou entre em uma sala</div>
           <form action="">
             <input type="text" placeholder="Digite o código da sala" />
-            <button type="submit">
+            <ButtonWrapper type="submit" color="primary">
               <img src={LogInIcon} alt="Entrar na sala" />
               Entrar na sala
-            </button>
+            </ButtonWrapper>
           </form>
         </Content>
       </Main>
