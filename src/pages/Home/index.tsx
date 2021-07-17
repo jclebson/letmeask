@@ -1,11 +1,22 @@
-import { PageAuth, Aside, Main, Content } from "./HomeStyle";
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 
 import IllustrationImg from "../../assets/images/Illustration.svg";
 import LogoImg from "../../assets/images/Logo.svg";
+import LogoLightImg from "../../assets/images/Logo-light.svg";
 import GoogleIcon from "../../assets/images/Google-Icon.svg";
 import LogInIcon from "../../assets/images/Log-in.svg";
 
-export const Home = () => {
+import { PageAuth, Aside, Main, Content } from "./styles";
+import { ToggleTheme } from "../../components/ToggleTheme";
+
+type HomePropsType = {
+  toggleTheme: () => void;
+};
+
+export const Home = ({ toggleTheme }: HomePropsType) => {
+  const { name } = useContext(ThemeContext);
+
   return (
     <PageAuth>
       <Aside>
@@ -16,8 +27,13 @@ export const Home = () => {
         </div>
       </Aside>
       <Main>
+        <ToggleTheme toggleTheme={toggleTheme} />
         <Content>
-          <img src={LogoImg} alt="Letmeask" />
+          {name === "light" ? (
+            <img src={LogoImg} alt="Letmeask" />
+          ) : (
+            <img src={LogoLightImg} alt="Letmeask" />
+          )}
           <button type="button" className="create-room-button">
             <img src={GoogleIcon} alt="Logo do Google" />
             Crie sua sala com o Google
