@@ -1,10 +1,14 @@
 import { addDecorator } from "@storybook/react";
+import { ThemeProvider } from "../src/styles/ThemeProvider";
+import { light } from "../src/styles/themes/light";
 import GlobalStyleComposed from "../src/styles/GlobalStyles";
 
 addDecorator((storyFn) => (
   <>
-    <GlobalStyleComposed />
-    {storyFn()}
+    <ThemeProvider theme={light}>
+      <GlobalStyleComposed />
+      {storyFn()}
+    </ThemeProvider>
   </>
 ));
 
