@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import { DefaultTheme } from "styled-components";
-import usePersistedState from "../../../hooks/usePersistedState";
+import usePersistedState from "../../hooks/usePersistedState";
 
-import { Home } from "../../../pages/Home";
-import { dark } from "../../../styles/themes/dark";
-import { light } from "../../../styles/themes/light";
+import { Home } from ".";
+import { dark } from "../../styles/themes/dark";
+import { light } from "../../styles/themes/light";
 
 export default {
   title: "Pages/Home",
