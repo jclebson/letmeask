@@ -15,8 +15,10 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist/"
   },
   "include": [
     "src"
-  ]
+  ],
+  "files": ["src/styles/styled.d.ts"]
 }

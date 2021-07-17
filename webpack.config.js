@@ -13,7 +13,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".ts", ".tsx"],
   },
 
   devServer: {
@@ -31,16 +31,23 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|[jt]sx)$/,
+        test: /\.(js|tsx|ts)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: ["babel-loader"],
       },
       {
         test: /\.(css|scss|sass)$/,
         exclude: /node_modules/,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|jpg|svg)$/i,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
       },
     ],
   },
