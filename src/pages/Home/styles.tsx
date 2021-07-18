@@ -145,4 +145,17 @@ export const Content = styled.div`
       margin-top: 1rem;
     }
   }
+
+  & {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: animeLeft 0.5s forwards;
+  }
+
+  @keyframes animeLeft {
+    to {
+      opacity: 1;
+      transform: initial;
+    }
+  }
 `;
