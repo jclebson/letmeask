@@ -11,7 +11,7 @@ import { ToggleTheme } from "../../components/ToggleTheme";
 import { ButtonWrapper } from "../../components/Button";
 import { Aside } from "../../components/Aside";
 
-export const Room = () => {
+export const NewRoom = () => {
   const { name } = useContext(ThemeContext);
 
   return (

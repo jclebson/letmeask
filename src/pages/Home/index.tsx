@@ -37,7 +37,7 @@ export const Home = () => {
           <button
             type="button"
             className="create-room-button"
-            onClick={() => history.push("/rooms")}
+            onClick={() => history.push("/rooms/new")}
           >
             <img src={GoogleIcon} alt="Logo do Google" />
             Crie sua sala com o Google
