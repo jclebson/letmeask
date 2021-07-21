@@ -7,9 +7,11 @@ import LogoLightImg from "../../assets/images/Logo-light.svg";
 import GoogleIcon from "../../assets/images/Google-Icon.svg";
 import LogInIcon from "../../assets/images/Log-in.svg";
 
-import { PageAuth, Aside, Main, Content } from "./styles";
+import { PageAuth, Main, Content } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
 import { ButtonWrapper } from "../../components/Button";
+import { Aside } from "../../components/Aside";
+import { useHistory } from "react-router-dom";
 
 type HomePropsType = {
   toggleTheme: () => void;
@@ -17,6 +19,7 @@ type HomePropsType = {
 
 export const Home = ({ toggleTheme }: HomePropsType) => {
   const { name } = useContext(ThemeContext);
+  const history = useHistory();
 
   return (
     <PageAuth>
@@ -35,7 +38,11 @@ export const Home = ({ toggleTheme }: HomePropsType) => {
           ) : (
             <img src={LogoLightImg} alt="Letmeask" />
           )}
-          <button type="button" className="create-room-button">
+          <button
+            type="button"
+            className="create-room-button"
+            onClick={() => history.push("/rooms")}
+          >
             <img src={GoogleIcon} alt="Logo do Google" />
             Crie sua sala com o Google
           </button>
