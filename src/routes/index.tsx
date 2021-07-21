@@ -6,7 +6,7 @@ export const AppRoutes = () => {
   return (
     <Switch>
       <Route path="/" exact component={HomeRoute} />
-      <Route path="/rooms" component={RoomRoute} />
+      <Route path="/rooms/new" component={RoomRoute} />
     </Switch>
   );
 };
