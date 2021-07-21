@@ -1,19 +1,17 @@
 import { BrowserRouter } from "react-router-dom";
-import { DefaultTheme } from "styled-components";
 
 import { ThemeProvider } from "./styles/ThemeProvider";
 import GlobalStyleComposed from "./styles/GlobalStyles";
 
-import usePersistedState from "./hooks/usePersistedState";
-import { light } from "./styles/themes/light";
 import { AppRoutes } from "./routes";
+import { useAppSelector } from "./hooks/hooksRedux";
 
 const App = () => {
-  const [theme, setTheme] = usePersistedState<DefaultTheme>("theme", light);
+  const { themeMode } = useAppSelector((state) => state);
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themeMode}>
         <GlobalStyleComposed />
         <BrowserRouter>
           <AppRoutes />

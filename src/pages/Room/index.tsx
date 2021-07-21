@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
+import { Link } from "react-router-dom";
 
 import IllustrationImg from "../../assets/images/Illustration.svg";
 import LogoImg from "../../assets/images/Logo.svg";
@@ -8,14 +9,9 @@ import LogoLightImg from "../../assets/images/Logo-light.svg";
 import { PageAuth, Main, Content } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
 import { ButtonWrapper } from "../../components/Button";
-import { Link } from "react-router-dom";
 import { Aside } from "../../components/Aside";
 
-type RoomPropsType = {
-  toggleTheme: () => void;
-};
-
-export const Room = ({ toggleTheme }: RoomPropsType) => {
+export const Room = () => {
   const { name } = useContext(ThemeContext);
 
   return (
@@ -28,7 +24,7 @@ export const Room = ({ toggleTheme }: RoomPropsType) => {
         </div>
       </Aside>
       <Main>
-        <ToggleTheme toggleTheme={toggleTheme} />
+        <ToggleTheme />
         <Content>
           {name === "light" ? (
             <img src={LogoImg} alt="Letmeask" />

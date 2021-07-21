@@ -7,6 +7,6 @@ export default {
   component: Room,
 } as ComponentMeta<typeof Room>;
 
-const RoomTemplate: ComponentStory<typeof Room> = (args) => <Room {...args} />;
+const RoomTemplate: ComponentStory<typeof Room> = () => <Room />;
 
 export const RoomPage = RoomTemplate.bind({});
