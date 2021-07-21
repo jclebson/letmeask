@@ -6,8 +6,8 @@ export default {
   component: ToggleTheme,
 } as ComponentMeta<typeof ToggleTheme>;
 
-const Template: ComponentStory<typeof ToggleTheme> = (args) => {
-  return <ToggleTheme toggleTheme={() => {}} />;
+const Template: ComponentStory<typeof ToggleTheme> = () => {
+  return <ToggleTheme />;
 };
 
 export const ButtonDarkMode = Template.bind({});
