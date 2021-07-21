@@ -1,23 +1,23 @@
-import GlobalStyleComposed from "./styles/GlobalStyles";
-import { Home } from "./pages/Home";
-import { ThemeProvider } from "./styles/ThemeProvider";
-import { light } from "./styles/themes/light";
-import { dark } from "./styles/themes/dark";
-import usePersistedState from "./hooks/usePersistedState";
+import { BrowserRouter } from "react-router-dom";
 import { DefaultTheme } from "styled-components";
+
+import { ThemeProvider } from "./styles/ThemeProvider";
+import GlobalStyleComposed from "./styles/GlobalStyles";
+
+import usePersistedState from "./hooks/usePersistedState";
+import { light } from "./styles/themes/light";
+import { AppRoutes } from "./routes";
 
 const App = () => {
   const [theme, setTheme] = usePersistedState<DefaultTheme>("theme", light);
-
-  const toggleTheme = () => {
-    setTheme(theme.name === "light" ? dark : light);
-  };
 
   return (
     <div>
       <ThemeProvider theme={theme}>
         <GlobalStyleComposed />
-        <Home toggleTheme={toggleTheme} />
+        <BrowserRouter>
+          <AppRoutes />
+        </BrowserRouter>
       </ThemeProvider>
     </div>
   );
