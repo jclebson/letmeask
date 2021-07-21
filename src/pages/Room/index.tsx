@@ -5,9 +5,11 @@ import IllustrationImg from "../../assets/images/Illustration.svg";
 import LogoImg from "../../assets/images/Logo.svg";
 import LogoLightImg from "../../assets/images/Logo-light.svg";
 
-import { PageAuth, Aside, Main, Content } from "./styles";
+import { PageAuth, Main, Content } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
 import { ButtonWrapper } from "../../components/Button";
+import { Link } from "react-router-dom";
+import { Aside } from "../../components/Aside";
 
 type RoomPropsType = {
   toggleTheme: () => void;
@@ -41,7 +43,8 @@ export const Room = ({ toggleTheme }: RoomPropsType) => {
             </ButtonWrapper>
           </form>
           <p>
-            Quer entrar em uma sala já existente? <a href="#">Clique aqui</a>
+            Quer entrar em uma sala já existente?{" "}
+            <Link to="/">Clique aqui</Link>
           </p>
         </Content>
       </Main>
