@@ -1,5 +1,5 @@
-import { NewRoom } from "../pages/NewRoom";
+import { Room } from "../pages/Admin/Room";
 
 export const RoomRoute = () => {
-  return <NewRoom />;
+  return <Room />;
 };
