@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { ButtonWrapper } from "../../components/Button";
+
 export const PageAuth = styled.div`
   display: flex;
   width: 100%;
@@ -26,6 +28,8 @@ export const Main = styled.main`
     right: 20px;
   }
 `;
+
+export const ButtonCreateRoom = styled(ButtonWrapper)``;
 
 export const Content = styled.div`
   display: flex;
