@@ -44,7 +44,11 @@ export const Home = () => {
           <div className="separator">ou entre em uma sala</div>
           <form action="">
             <input type="text" placeholder="Digite o código da sala" />
-            <ButtonEnterRoom type="submit" color="primary">
+            <ButtonEnterRoom
+              type="submit"
+              color="primary"
+              onClick={() => history.push("/admin/room")}
+            >
               <img src={LogInIcon} alt="Entrar na sala" />
               Entrar na sala
             </ButtonEnterRoom>
