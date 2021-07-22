@@ -10,14 +10,12 @@ const App = () => {
   const { themeMode } = useAppSelector((state) => state);
 
   return (
-    <div>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyleComposed />
-        <BrowserRouter>
-          <AppRoutes />
-        </BrowserRouter>
-      </ThemeProvider>
-    </div>
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyleComposed />
+      <BrowserRouter>
+        <AppRoutes />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 };
 
