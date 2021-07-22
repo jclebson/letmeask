@@ -1,13 +1,11 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
 import styled, { DefaultTheme } from "styled-components";
 import classnames from "classnames";
 
-type ButtonPropsType = {
-  type: "button" | "submit" | "reset" | undefined;
+type ButtonPropsType = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode;
   color?: "default" | "primary" | "danger";
   variant?: "default" | "outlined";
-  className?: string;
 };
 
 const Button = styled.button`
@@ -71,28 +69,19 @@ const ButtonOutlined = styled(Button)`
 `;
 
 export const ButtonWrapper = ({
-  type,
   children,
   color = "default",
   variant = "default",
   className,
+  ...props
 }: ButtonPropsType) => {
-  switch (variant) {
-    case "outlined":
-      return (
-        <ButtonOutlined
-          type={type}
-          color={color}
-          className={classnames(className)}
-        >
-          {children}
-        </ButtonOutlined>
-      );
-    default:
-      return (
-        <Button type={type} color={color} className={classnames(className)}>
-          {children}
-        </Button>
-      );
-  }
+  return variant === "outlined" ? (
+    <ButtonOutlined color={color} className={classnames(className)} {...props}>
+      {children}
+    </ButtonOutlined>
+  ) : (
+    <Button color={color} className={classnames(className)} {...props}>
+      {children}
+    </Button>
+  );
 };
