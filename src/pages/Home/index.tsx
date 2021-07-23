@@ -12,9 +12,21 @@ import { PageAuth, Main, Content, ButtonEnterRoom } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
 import { Aside } from "../../components/Aside";
 
+import { signInWithGoogle } from "../../store/reducers/auth";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooksRedux";
+
 export const Home = () => {
   const { name } = useContext(ThemeContext);
   const history = useHistory();
+  const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state.authGoogle);
+
+  const handleCreateRoomWithGoogle = async () => {
+    if (Object.keys(user).length === 0) {
+      await signInWithGoogle(dispatch);
+    }
+    history.push("/rooms/new");
+  };
 
   return (
     <PageAuth>
@@ -36,7 +48,7 @@ export const Home = () => {
           <button
             type="button"
             className="create-room-button"
-            onClick={() => history.push("/rooms/new")}
+            onClick={handleCreateRoomWithGoogle}
           >
             <img src={GoogleIcon} alt="Logo do Google" />
             Crie sua sala com o Google

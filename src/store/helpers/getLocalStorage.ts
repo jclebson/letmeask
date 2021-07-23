@@ -1,6 +1,4 @@
-import { DefaultTheme } from "styled-components";
-
-const getLocalStorage = (key: string, initial: DefaultTheme) => {
+const getLocalStorage = <T>(key: string, initial: T) => {
   try {
     return JSON.parse(localStorage.getItem(key) as string) || initial;
   } catch (err) {}

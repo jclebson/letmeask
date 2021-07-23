@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import IllustrationImg from "../../assets/images/Illustration.svg";
 import LogoImg from "../../assets/images/Logo.svg";
@@ -9,9 +9,18 @@ import LogoLightImg from "../../assets/images/Logo-light.svg";
 import { PageAuth, Main, Content, ButtonCreateRoom } from "./styles";
 import { ToggleTheme } from "../../components/ToggleTheme";
 import { Aside } from "../../components/Aside";
+import { useAppSelector } from "../../hooks/hooksRedux";
 
 export const NewRoom = () => {
   const { name } = useContext(ThemeContext);
+  const { user } = useAppSelector((state) => state.authGoogle);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (Object.keys(user).length === 0) {
+      history.push("/");
+    }
+  }, []);
 
   return (
     <PageAuth>
