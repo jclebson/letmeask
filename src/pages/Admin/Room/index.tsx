@@ -4,7 +4,6 @@ import LogoImg from "../../../assets/images/Logo.svg";
 import CopyImg from "../../../assets/images/Copy.svg";
 import EmptyStateImg from "../../../assets/images/Empty-state.svg";
 import { useHistory } from "react-router-dom";
-import classnames from "classnames";
 
 export const Room = () => {
   const history = useHistory();

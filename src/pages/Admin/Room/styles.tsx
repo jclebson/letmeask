@@ -60,7 +60,7 @@ export const Main = styled.main`
   margin: 0 auto;
 
   .room-title {
-    margin-top: 4rem;
+    margin: 4rem 0 1.5rem;
     font-family: "Poppins";
     font-size: 0.75em;
     font-weight: 700;
@@ -97,6 +97,19 @@ export const Main = styled.main`
       text-align: center;
       margin-top: 8px;
       color: ${(props) => props.theme.colors.primaryColors.gray.dark};
+    }
+  }
+
+  & {
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: animeLeft 0.5s forwards;
+  }
+
+  @keyframes animeLeft {
+    to {
+      opacity: 1;
+      transform: initial;
     }
   }
 `;
