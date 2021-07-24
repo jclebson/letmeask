@@ -14,6 +14,7 @@ import { Aside } from "../../components/Aside";
 
 import { signInWithGoogle } from "../../store/reducers/auth";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooksRedux";
+import useCheckAuth from "../../hooks/useCheckAuth";
 
 export const Home = () => {
   const { name } = useContext(ThemeContext);
@@ -22,7 +23,7 @@ export const Home = () => {
   const { user } = useAppSelector((state) => state.authGoogle);
 
   const handleCreateRoomWithGoogle = async () => {
-    if (Object.keys(user).length === 0) {
+    if (useCheckAuth(user)) {
       await signInWithGoogle(dispatch);
     }
     history.push("/rooms/new");
