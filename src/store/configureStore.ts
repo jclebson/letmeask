@@ -2,8 +2,9 @@ import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import localStorage from "./middlewares/localStorage";
 
 import themeMode from "./reducers/themeSwitch";
+import authGoogle from "./reducers/auth";
 
-const reducer = combineReducers({ themeMode });
+const reducer = combineReducers({ themeMode, authGoogle });
 
 const store = configureStore({
   reducer,

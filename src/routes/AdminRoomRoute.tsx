@@ -1,5 +1,5 @@
 import { Room } from "../pages/Admin/Room";
 
-export const RoomRoute = () => {
+export const AdminRoomRoute = () => {
   return <Room />;
 };
