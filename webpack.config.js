@@ -1,15 +1,18 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const dotenvPlugin = require("dotenv-webpack");
 
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: isDevelopment ? "development" : "production",
+  devtool: isDevelopment ? "eval-source-map" : "source-map",
   entry: path.resolve(__dirname, "src", "index.tsx"),
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
 
   resolve: {
@@ -25,6 +28,11 @@ module.exports = {
   plugins: [
     new HTMLWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
+    }),
+    new dotenvPlugin({
+      path: "./src/.env.local",
+      systemvars: true,
+      safe: true,
     }),
     isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
