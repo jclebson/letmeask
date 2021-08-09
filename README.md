@@ -49,9 +49,17 @@ Para iniciá-lo, siga os passos abaixo:
 $ yarn
 
 # Iniciar o projeto
-$ yarn start
+$ yarn dev
 ```
+
 O app estará disponível no seu browser pelo endereço http://localhost:3000.
+
+Para iniciar o Storybook siga o passo abaixo:
+```bash
+# Iniciar o storybook
+$ yarn storybook
+```
+O storybook estará acessível pelo endereço http://localhost:6006.
 
 ## 💻 Projeto
 
